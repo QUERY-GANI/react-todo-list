@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.input {
+  transition: border 0.2s ease-in-out;
+  min-width: 280px;
+}
+
+.input:focus + .label,
+.input:not(:placeholder-shown) + .label {
+  font-size: 0.75rem;
+  transition: all 0.2s ease-out;
+  top: -3.7rem;
+  color: #667eea;
+}
+
+.label {
+  transition: all 0.2s ease-out;
+  top: -3rem;
+  left: 0;
+  color: #afafaf;
+}

@@ -3,6 +3,10 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {},
+    fontFamily: {
+      orienta: ["Orienta", "sans-serif"],
+      poppins: ["Poppins", "sans-serif"],
+    },
   },
   variants: {
     extend: {},
