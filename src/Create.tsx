@@ -2,7 +2,7 @@ import { ReactComponent as Close } from "./close.svg"
 
 export default function Create({ isMounted, toggleModal }: { isMounted: boolean; toggleModal: () => void }) {
   return (
-    <div className={`flex absolute h-full w-full bg-gray-400 transition-opacity duration-700 ${isMounted ? "opacity-100" : "opacity-0"}`}>
+    <div className={`flex absolute h-full w-full bg-transparent transition-opacity duration-700 ${isMounted ? "opacity-100" : "opacity-0"}`}>
       <div className="flex flex-col m-auto w-9/12">
         <div className="flex justify-between items-center p-5 rounded-t bg-green-500">
           <h1 className="font-orienta text-xl">Create list</h1>

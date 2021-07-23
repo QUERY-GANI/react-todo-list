@@ -1,36 +1,20 @@
-import { useEffect } from "react"
-import { useState } from "react"
 import Create from "./Create"
+import { useModal } from "./Modal"
 
 function App() {
-  const [isMounted, setMounted] = useState(false)
-
-  function useDelayUnmount(isMounted: boolean, delayTime: number) {
-    const [shouldRender, setShouldRender] = useState(false)
-    useEffect(() => {
-      let timeoutId: NodeJS.Timeout
-      if (isMounted && !shouldRender) {
-        setShouldRender(true)
-      } else if (!isMounted && shouldRender) {
-        timeoutId = setTimeout(() => setShouldRender(false), delayTime)
-      }
-      return () => clearTimeout(timeoutId)
-    }, [isMounted, shouldRender, delayTime])
-    return shouldRender
-  }
-
-  const shouldRenderChild = useDelayUnmount(isMounted, 500)
-
-  const toggleModal = () => {
-    setMounted(!isMounted)
-  }
-
+  const [shouldRenderChild, toggleModal] = useModal()
   return (
     <div>
-      {shouldRenderChild && <Create toggleModal={toggleModal} isMounted={isMounted} />}
-      <button className="bg-indigo-500 text-white ml-5 p-3 rounded mt-5" onClick={toggleModal}>
-        Create list
-      </button>
+      {shouldRenderChild && <Create toggleModal={toggleModal} isMounted={!shouldRenderChild} />}
+      <h1 className="font-poppins text-xl text-center font-bold pt-5">Simple Todo List</h1>
+      <div className="p-10 font-orienta">
+        <div className="flex flex-col items-start justify-between">
+          <h1 className="text-lg">Titlenya</h1>
+          <button className="bg-black text-white p-3 rounded" onClick={toggleModal}>
+            Create list
+          </button>
+        </div>
+      </div>
     </div>
   )
 }
