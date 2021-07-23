@@ -4,7 +4,7 @@ export const useModal = (): [boolean, () => void] => {
   const [isMounted, setMounted] = useState(false)
 
   function useDelayUnmount(isMounted: boolean, delayTime: number) {
-    const [shouldRender, setShouldRender] = useState(true)
+    const [shouldRender, setShouldRender] = useState(false)
     useEffect(() => {
       let timeoutId: NodeJS.Timeout
       if (isMounted && !shouldRender) {

@@ -5,7 +5,7 @@ function App() {
   const [shouldRenderChild, toggleModal] = useModal()
   return (
     <div>
-      {shouldRenderChild && <Create toggleModal={toggleModal} isMounted={!shouldRenderChild} />}
+      {shouldRenderChild && <Create toggleModal={toggleModal} isMounted={shouldRenderChild} />}
       <h1 className="font-poppins text-xl text-center font-bold pt-5">Simple Todo List</h1>
       <div className="p-10 font-orienta">
         <div className="flex flex-col items-start justify-between">
